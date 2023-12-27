@@ -25,7 +25,7 @@ export class AppComponent {
 
   onCategorySelected(category: string): void {
     this.selectedCategory = category;
-    this.conversionResult = 0; // Reset conversion result when category changes
+    this.conversionResult = 0;
   }
 
   onConversionResult(result: number): void {

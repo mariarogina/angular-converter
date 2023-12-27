@@ -3,8 +3,6 @@
     <input type="number" id="numberInput" [(ngModel)]="inputValue" (focus)="clearInput()" placeholder="Enter value"
         min="0" />
 
-
-    <!-- Select Converter (based on selectedCategory) -->
     <label for="converter-select">Select a Converter:</label>
     <select id="converter-select" [(ngModel)]="selectedConverter">
         <option value="" disabled>Select a Converter</option>

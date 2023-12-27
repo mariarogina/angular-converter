@@ -11,7 +11,7 @@ import { ConversionService } from '../conversion.service';
   imports: [FormsModule, CommonModule],
 })
 export class ConverterComponent implements OnInit {
-  @Input() selectedCategory: string = 'Distance'; // Updated input name
+  @Input() selectedCategory: string = 'Distance';
   @Output() conversionResult = new EventEmitter<number>();
 
   inputValue: number | null = null;
@@ -19,7 +19,6 @@ export class ConverterComponent implements OnInit {
   units: string[] = [];
   displayResult: number | null = null;
 
-  // Define conversion data based on categories
   conversionData: { [category: string]: string[] } = {
     Distance: [
       'meters to miles',
@@ -48,9 +47,7 @@ export class ConverterComponent implements OnInit {
   }
 
   initializeUnits(): void {
-    // Set the available units based on the selected category
     this.units = this.conversionData[this.selectedCategory] || [];
-    // Reset the selected converter
     this.selectedConverter = '';
   }
 
@@ -68,10 +65,8 @@ export class ConverterComponent implements OnInit {
       );
       console.log('Result:', result);
 
-      // Round the result to 4 decimal places
       this.displayResult = parseFloat(result.toFixed(4));
 
-      // Emit the rounded result
       this.conversionResult.emit(this.displayResult);
     }
   }
