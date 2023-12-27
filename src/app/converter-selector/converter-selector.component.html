@@ -1,0 +1,7 @@
+<div class="converter-selector">
+    <label for="converter-select">Select a Converter:</label>
+    <select id="converter-select" (change)="onConverterChange($event)">
+        <option value="">--Please choose a converter--</option>
+        <option *ngFor="let converter of converters[category]" [value]="converter">{{ converter }}</option>
+    </select>
+</div>

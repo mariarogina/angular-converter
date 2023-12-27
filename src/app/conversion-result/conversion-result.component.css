@@ -1,0 +1,15 @@
+.conversion-result {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #dcb4ed;
+  background-color: #f5dcff;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+p {
+  font-size: 26px;
+  margin-top: 5px;
+}

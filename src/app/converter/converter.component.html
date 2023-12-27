@@ -1,0 +1,17 @@
+<div class="converter">
+    <label for="numberInput">Enter number:</label>
+    <input type="number" id="numberInput" [(ngModel)]="inputValue" (focus)="clearInput()" placeholder="Enter value"
+        min="0" />
+
+
+    <!-- Select Converter (based on selectedCategory) -->
+    <label for="converter-select">Select a Converter:</label>
+    <select id="converter-select" [(ngModel)]="selectedConverter">
+        <option value="" disabled>Select a Converter</option>
+        <option *ngFor="let converter of conversionData[selectedCategory]" [value]="converter">{{ converter }}</option>
+    </select>
+
+
+    <button (click)="convert()">Convert</button>
+
+</div>

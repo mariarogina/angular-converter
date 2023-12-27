@@ -1,0 +1,20 @@
+.category-selector {
+  margin: 10px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.category-selector select {
+  padding: 10px;
+  margin: 15px;
+  font-size: 16px;
+  width: 200px;
+}
+
+.icon fa-icon {
+  color: #d074f9;
+  font-size: 100px;
+  width: 60px;
+  height: 60px;
+  padding: 40px;
+}
