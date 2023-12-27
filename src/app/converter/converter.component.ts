@@ -14,7 +14,7 @@ export class ConverterComponent implements OnInit {
   @Input() selectedCategory: string = 'Distance';
   @Output() conversionResult = new EventEmitter<number>();
 
-  inputValue: number | null = null;
+  inputValue: number = 0;
   selectedConverter: string = '';
   units: string[] = [];
   displayResult: number | null = null;
@@ -52,7 +52,13 @@ export class ConverterComponent implements OnInit {
   }
 
   clearInput() {
-    this.inputValue = null;
+    this.inputValue = 0;
+  }
+
+  onInputValueChange(): void {
+    if (this.inputValue < 0) {
+      this.inputValue = 0;
+    }
   }
 
   convert(): void {
