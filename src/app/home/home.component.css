@@ -9,9 +9,3 @@ h1 {
   font-weight: bold;
   font-size: 28px;
 }
-
-nav {
-  display: flex;
-  justify-content: space-evenly;
-  margin: 50px;
-}
