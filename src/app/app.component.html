@@ -1,9 +1,11 @@
 <div class="app-container">
-  <router-outlet></router-outlet>
-  <nav>
+  <mat-toolbar color="primary">
     <div>
-      <a routerLink="/about">About</a>
+      <button mat-button routerLink="/about"><mat-icon>info</mat-icon></button>
     </div>
-    <div><a routerLink="/">Home</a></div>
-  </nav>
+    <div>
+      <button mat-button routerLink="/"><mat-icon>house</mat-icon></button>
+    </div>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
 </div>

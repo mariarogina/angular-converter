@@ -6,21 +6,22 @@ import {
   faBalanceScale,
   faWineBottle,
 } from '@fortawesome/free-solid-svg-icons';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-category-selector',
   templateUrl: './category-selector.component.html',
   styleUrls: ['./category-selector.component.css'],
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule, MatIconModule],
 })
 export class CategorySelectorComponent {
   @Output() categorySelected = new EventEmitter<string>();
 
   categoryIcons = {
-    Distance: faRoad,
-    Weight: faBalanceScale,
-    Volume: faWineBottle,
+    Distance: 'straighten',
+    Weight: 'scale',
+    Volume: 'liquor',
   };
 
   categories: string[] = ['Distance', 'Weight', 'Volume'];

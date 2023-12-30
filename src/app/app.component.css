@@ -10,8 +10,12 @@ h1 {
   font-size: 28px;
 }
 
-nav {
+mat-toolbar {
   display: flex;
   justify-content: space-evenly;
   margin: 30px;
+}
+
+mat-toolbar div a {
+  color: aliceblue;
 }

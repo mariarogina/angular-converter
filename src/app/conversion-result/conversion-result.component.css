@@ -1,10 +1,15 @@
-.conversion-result {
+/* .conversion-result {
   margin-top: 20px;
   padding: 10px;
   border: 1px solid #dcb4ed;
   background-color: #f5dcff;
-}
+} */
 
+mat-toolbar {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
 h2 {
   font-size: 28px;
 }

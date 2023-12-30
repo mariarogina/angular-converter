@@ -1,10 +1,24 @@
-<h1>Unit Converter</h1>
+<div fxLayout="column" fxLayoutGap="20px" class="app-container">
+    <!-- First Row with Category Selector taking 2 columns -->
+    <div fxLayout="row" fxFlexFill>
+        <mat-card fxFlex="100">
+            <h2>Unit Converter</h2>
+        </mat-card>
+    </div>
+    <div fxLayout="row" fxFlexFill>
+        <mat-card fxFlex="100">
+            <app-category-selector (categorySelected)="onCategorySelected($event)"></app-category-selector>
+        </mat-card>
+    </div>
 
-<!-- Select category -->
-<app-category-selector (categorySelected)="onCategorySelected($event)"></app-category-selector>
-
-<!-- Select converter and input numbers -->
-<app-converter [selectedCategory]="selectedCategory" (conversionResult)="onConversionResult($event)"></app-converter>
-
-<!-- Display the conversion result -->
-<app-conversion-result [convertedResult]="conversionResult"></app-conversion-result>
+    <!-- Second Row with Converter and Conversion Result each taking 1 column -->
+    <div fxLayout="row" fxLayout.xs="column" fxFlexFill>
+        <mat-card fxFlex="50%">
+            <app-converter [selectedCategory]="selectedCategory"
+                (conversionResult)="onConversionResult($event)"></app-converter>
+        </mat-card>
+        <mat-card fxFlex="50%">
+            <app-conversion-result [convertedResult]="conversionResult"></app-conversion-result>
+        </mat-card>
+    </div>
+</div>

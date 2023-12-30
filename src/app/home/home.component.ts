@@ -5,6 +5,8 @@ import { ConverterComponent } from '../converter/converter.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { MatCardModule } from '@angular/material/card';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +18,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     FontAwesomeModule,
     RouterModule,
+    MatCardModule,
+    FlexLayoutModule,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',

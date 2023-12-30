@@ -5,6 +5,11 @@ import { ConverterComponent } from './converter/converter.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +23,11 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     FontAwesomeModule,
     RouterModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    FlexLayoutModule,
+    MatIconModule,
   ],
 })
 export class AppComponent {
