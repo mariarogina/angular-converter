@@ -1,7 +1,7 @@
 .app-container {
   text-align: center;
-  margin-top: 20px;
   padding: 50px;
+  padding: 30px;
 }
 
 h1 {
@@ -14,8 +14,22 @@ mat-toolbar {
   display: flex;
   justify-content: space-evenly;
   margin: 30px;
+  width: 95%;
 }
 
 mat-toolbar div a {
   color: aliceblue;
+}
+
+button {
+  font-size: 33px !important;
+  width: 30px !important;
+  height: 40px !important;
+  padding: 4px !important;
+}
+.large-icon {
+  font-size: 33px !important;
+  width: 30px !important;
+  height: 30px !important;
+  padding: 3px !important;
 }

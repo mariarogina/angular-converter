@@ -9,6 +9,7 @@ mat-toolbar {
   text-align: center;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 h2 {
   font-size: 28px;

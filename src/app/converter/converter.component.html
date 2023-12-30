@@ -1,15 +1,16 @@
 <div class="converter">
-    <label for="numberInput">Enter number:</label>
+  <div> <label for="numberInput">Enter number:</label>
     <input type="number" id="numberInput" [(ngModel)]="inputValue" (ngModelChange)="onInputValueChange()"
-        (change)="convert()" placeholder="Enter value" min="0" />
-
-    <label for="converter-select">Select a Converter:</label>
+      (change)="convert()" placeholder="Enter value" min="0" />
+  </div>
+  <div> <label for="converter-select">Select a Converter:</label>
     <select id="converter-select" [(ngModel)]="selectedConverter" (change)="convert()">
-        <option value="" disabled>Select a Converter</option>
-        <option *ngFor="let converter of conversionData[selectedCategory]" [value]="converter">{{ converter }}</option>
+      <option value="" disabled>Select a Converter</option>
+      <option *ngFor="let converter of conversionData[selectedCategory]" [value]="converter">{{ converter }}
+      </option>
     </select>
+  </div>
 
-
-    <!-- <button>Convert</button> -->
+  <!-- <button>Convert</button> -->
 
 </div>
