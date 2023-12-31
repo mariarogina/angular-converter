@@ -1,5 +1,4 @@
 <div fxLayout="column" fxLayoutGap="20px" class="app-container">
-    <!-- First Row with Category Selector taking 2 columns -->
     <div fxLayout="row" fxFlexFill>
         <mat-card fxFlex="100">
             <h2>Unit Converter</h2>
@@ -11,7 +10,6 @@
         </mat-card>
     </div>
 
-    <!-- Second Row with Converter and Conversion Result each taking 1 column -->
     <div fxLayout="row" fxLayout.xs="column" fxFlexFill>
         <mat-card fxFlex="50%">
             <app-converter [selectedCategory]="selectedCategory"
