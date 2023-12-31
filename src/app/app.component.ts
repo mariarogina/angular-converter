@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CategorySelectorComponent } from './category-selector/category-selector.component'; // Adjust the path as necessary
+import { CategorySelectorComponent } from './category-selector/category-selector.component';
 import { ConversionResultComponent } from './conversion-result/conversion-result.component';
 import { ConverterComponent } from './converter/converter.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
