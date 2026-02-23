@@ -1,3 +1,5 @@
+<img width="1000" height="500" alt="image" src="https://github.com/user-attachments/assets/1163cfc6-fe60-4708-bf8c-1fcf5846fc83" />
+
 # UnitConverterApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.8.
