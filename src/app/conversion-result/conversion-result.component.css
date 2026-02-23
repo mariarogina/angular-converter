@@ -10,6 +10,7 @@ mat-toolbar {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  min-height: 120px;
 }
 h2 {
   font-size: 28px;
@@ -18,4 +19,20 @@ h2 {
 p {
   font-size: 26px;
   margin-top: 5px;
+}
+
+.conversion-result mat-toolbar div {
+  font-size: 24px;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  mat-toolbar {
+    min-height: 96px;
+    padding: 10px;
+  }
+
+  .conversion-result mat-toolbar div {
+    font-size: 20px;
+  }
 }

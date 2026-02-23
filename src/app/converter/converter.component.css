@@ -8,12 +8,31 @@
 .converter select {
   margin-right: 10px;
   padding: 10px;
+  min-height: 40px;
 }
 
-.converter button {
-  padding: 5px 10px;
-}
-
-div {
+.converter > div {
   margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .converter {
+    margin: 0;
+    padding: 6px 0;
+    font-size: 16px;
+  }
+
+  .converter label {
+    display: block;
+    margin-bottom: 6px;
+    text-align: left;
+  }
+
+  .converter input,
+  .converter select {
+    width: 100%;
+    margin-right: 0;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
 }

@@ -11,8 +11,8 @@ h1 {
 mat-toolbar {
   display: flex;
   justify-content: space-evenly;
-  margin: 30px;
-  width: 95%;
+  margin: 12px auto;
+  width: calc(100% - 24px);
 }
 
 mat-toolbar div a {
@@ -20,14 +20,34 @@ mat-toolbar div a {
 }
 
 button {
-  font-size: 33px !important;
-  width: 30px !important;
+  font-size: 26px !important;
+  width: 40px !important;
   height: 40px !important;
-  padding: 4px !important;
+  padding: 2px !important;
 }
 .large-icon {
-  font-size: 33px !important;
-  width: 30px !important;
-  height: 30px !important;
-  padding: 3px !important;
+  font-size: 26px !important;
+  width: 26px !important;
+  height: 26px !important;
+  padding: 2px !important;
+}
+
+@media (max-width: 768px) {
+  mat-toolbar {
+    margin: 8px auto;
+    width: calc(100% - 16px);
+    min-height: 52px;
+  }
+
+  button {
+    font-size: 22px !important;
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .large-icon {
+    font-size: 22px !important;
+    width: 22px !important;
+    height: 22px !important;
+  }
 }

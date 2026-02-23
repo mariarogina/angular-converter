@@ -1,7 +1,17 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ConversionService } from '../conversion.service';
+import { Subject, Subscription, debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'app-converter',
@@ -10,14 +20,16 @@ import { ConversionService } from '../conversion.service';
   standalone: true,
   imports: [FormsModule, CommonModule],
 })
-export class ConverterComponent implements OnInit {
+export class ConverterComponent implements OnInit, OnChanges, OnDestroy {
   @Input() selectedCategory: string = 'Distance';
   @Output() conversionResult = new EventEmitter<number>();
 
-  inputValue: number = 0;
+  inputValue: number | null = 0;
   selectedConverter: string = '';
   units: string[] = [];
   displayResult: number | null = null;
+  private inputChange$ = new Subject<number>();
+  private inputSubscription?: Subscription;
 
   conversionData: { [category: string]: string[] } = {
     Distance: [
@@ -44,6 +56,17 @@ export class ConverterComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeUnits();
+    this.inputSubscription = this.inputChange$
+      .pipe(debounceTime(400), distinctUntilChanged())
+      .subscribe(() => this.convert());
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['selectedCategory']) {
+      this.initializeUnits();
+      this.displayResult = null;
+      this.conversionResult.emit(0);
+    }
   }
 
   initializeUnits(): void {
@@ -51,29 +74,46 @@ export class ConverterComponent implements OnInit {
     this.selectedConverter = '';
   }
 
-  clearInput() {
-    this.inputValue = 0;
+  ngOnDestroy(): void {
+    this.inputSubscription?.unsubscribe();
   }
 
-  onInputValueChange(): void {
-    if (this.inputValue < 0) {
-      this.inputValue = 0;
+  clearInput() {
+    this.inputValue = null;
+  }
+
+  clearInputOnFocus(): void {
+    if (this.inputValue === 0) {
+      this.inputValue = null;
     }
+  }
+
+  onInputValueChange(value: number | null): void {
+    if (value !== null && value < 0) {
+      value = 0;
+    }
+    this.inputValue = value;
+
+    if (this.inputValue === null) {
+      this.displayResult = null;
+      this.conversionResult.emit(0);
+      return;
+    }
+
+    this.inputChange$.next(this.inputValue);
   }
 
   convert(): void {
-    console.log('inputValue:', this.inputValue);
-    console.log('selectedConverter:', this.selectedConverter);
-    if (this.inputValue && this.selectedConverter) {
-      const result = this.conversionService.convertUnits(
-        this.inputValue,
-        this.selectedConverter
-      );
-      console.log('Result:', result);
-
-      this.displayResult = parseFloat(result.toFixed(4));
-
-      this.conversionResult.emit(this.displayResult);
+    if (!this.selectedConverter || this.inputValue === null) {
+      return;
     }
+
+    const result = this.conversionService.convertUnits(
+      this.inputValue,
+      this.selectedConverter
+    );
+
+    this.displayResult = parseFloat(result.toFixed(4));
+    this.conversionResult.emit(this.displayResult);
   }
 }

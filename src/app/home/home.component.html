@@ -10,12 +10,12 @@
         </mat-card>
     </div>
 
-    <div fxLayout="row" fxLayout.xs="column" fxFlexFill>
-        <mat-card fxFlex="50%">
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutGap="20px" fxFlexFill>
+        <mat-card fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
             <app-converter [selectedCategory]="selectedCategory"
                 (conversionResult)="onConversionResult($event)"></app-converter>
         </mat-card>
-        <mat-card fxFlex="50%">
+        <mat-card fxFlex="50%" fxFlex.xs="100%" fxFlex.sm="100%">
             <app-conversion-result [convertedResult]="conversionResult"></app-conversion-result>
         </mat-card>
     </div>
